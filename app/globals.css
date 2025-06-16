@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 142.1 76.2% 36.3%;
+    --primary-foreground: 355.7 100% 97.3%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 142.1 76.2% 36.3%;
+    --chart-1: 142.1 76.2% 36.3%;
+    --chart-2: 0 84.2% 60.2%;
+    --chart-3: 217.2 91.2% 59.8%;
+    --chart-4: 47.9 95.8% 53.1%;
+    --chart-5: 339.3 82.2% 51.4%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-trading-bg text-trading-text font-inter;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  
+  .trading-surface {
+    @apply bg-trading-surface/60 backdrop-blur-sm border border-white/10;
+  }
+  
+  .trading-glow {
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.1);
+  }
+  
+  .trading-glow-red {
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.1);
+  }
+  
+  .trading-number {
+    @apply font-mono font-medium;
+  }
+  
+  .trading-positive {
+    @apply text-trading-bull;
+  }
+  
+  .trading-negative {
+    @apply text-trading-bear;
+  }
+  
+  .trading-neutral {
+    @apply text-trading-info;
+  }
+}
+
+@layer components {
+  .strategy-card {
+    @apply trading-surface rounded-xl p-6 hover:bg-trading-surface/80 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl;
+  }
+  
+  .metric-card {
+    @apply trading-surface rounded-lg p-4 transition-all duration-200 hover:bg-trading-surface/80;
+  }
+  
+  .chart-container {
+    @apply trading-surface rounded-lg p-4 min-h-[300px] relative overflow-hidden;
+  }
+  
+  .pulse-dot {
+    @apply w-2 h-2 rounded-full animate-pulse-glow;
+  }
+  
+  .trading-button {
+    @apply bg-gradient-to-r from-trading-bull to-trading-bull/80 hover:from-trading-bull/90 hover:to-trading-bull/70 text-white font-medium px-4 py-2 rounded-lg transition-all duration-200 hover:scale-105 shadow-lg;
+  }
+  
+  .trading-button-danger {
+    @apply bg-gradient-to-r from-trading-bear to-trading-bear/80 hover:from-trading-bear/90 hover:to-trading-bear/70 text-white font-medium px-4 py-2 rounded-lg transition-all duration-200 hover:scale-105 shadow-lg;
+  }
+}
+
+/* Hide Next.js badge and error messages */
+body > nextjs-portal {
+  display: none;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #475569;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
